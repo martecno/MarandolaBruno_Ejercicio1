@@ -61,11 +61,13 @@ public class Main {
 		System.out.println("Nombre: " + razonSocial);
 		System.out.println("Domicilio: " + domicilio);
 		System.out.println("*************************************************************************************");
-		System.out.println("Cant. | Descripcion | P. unit | P. total");
+		System.out.println("Cant. \t| Descripcion\t\t\t| P. unit\t\t | P. total");
 		System.out.println("-------------------------------------------------------------------------------------");
-		System.out.println(cantidad1 + "      | " + producto1 + " |" + valorProducto1 + " |" + valorProductoTotal1);
+		System.out
+				.println(cantidad1 + "\t| " + producto1 + " \t\t\t|" + valorProducto1 + " \t\t|" + valorProductoTotal1);
 		System.out.println("-------------------------------------------------------------------------------------");
-		System.out.println(cantidad2 + "      | " + producto2 + " |" + valorProducto2 + " |" + valorProductoTotal2);
+		System.out
+				.println(cantidad2 + "\t| " + producto2 + " \t\t\t|" + valorProducto2 + " \t\t|" + valorProductoTotal2);
 		System.out.println("-------------------------------------------------------------------------------------");
 		System.out.println("IVA: " + ivaTotal);
 		System.out.println("Subtotal (sin IVA): " + (valorProductoTotal1 + valorProductoTotal2));
