@@ -2,7 +2,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
-public class Main_modularizado {
+public class Main_Modularizado {
 
 	public static void main(String[] args) {
 		int cantidadUnitariaProducto;
