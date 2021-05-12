@@ -36,13 +36,12 @@ public class Main_Modularizado {
 			valorProductoTotal = (valorProducto * cantidadUnitariaProducto);
 			valorTotal += valorProductoTotal;
 			ticket = extracted(cantidadUnitariaProducto, valorProducto, valorProductoTotal, producto, ticket);
-//			cantidadTotalProductos = cantidadTotalProductos - 1;
 			System.out.println("Desea cargar más productos? (S/N)");
 			scan.nextLine();
 			sn = scan.nextLine();
 		}
 
-		ivaTotal += (valorProductoTotal * iva);
+		ivaTotal += (valorTotal * iva);
 		valorTotalConIVA = ivaTotal + valorTotal;
 		impresion(valorTotalConIVA, valorTotal, ivaTotal, razonSocial, domicilio, ticket, date);
 	}
