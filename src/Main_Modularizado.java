@@ -23,22 +23,18 @@ public class Main_Modularizado {
 
 		String date = date();
 
-		razonSocial = razonSocial(scan);
-		domicilio = domicilio(scan);
-//		cantidadTotalProductos = cantidadDeProductos(scan);
-		System.out.println("Desea cargar más productos? (S/N)");
-		sn = scan.nextLine();
+		razonSocial = solicitarStringPorTeclado("Ingrese la Razón Social");
+		domicilio = solicitarStringPorTeclado("Ingrese el domicilio");
+		sn = solicitarStringPorTeclado("Desea cargar más productos? (S/N)");
 
 		while (sn.equals("s")) {
-			producto = producto(scan);
-			cantidadUnitariaProducto = cantidadProducto(scan);
-			valorProducto = precioUnitario(scan);
+			producto = solicitarStringPorTeclado("Ingrese el producto");
+			cantidadUnitariaProducto = solicitarIntPorTeclado("Ingrese la cantidad del producto");
+			valorProducto = solicitarDoublePorTeclado("Ingrese el valor unitario (sin IVA) del producto");
 			valorProductoTotal = (valorProducto * cantidadUnitariaProducto);
 			valorTotal += valorProductoTotal;
 			ticket = extracted(cantidadUnitariaProducto, valorProducto, valorProductoTotal, producto, ticket);
-			System.out.println("Desea cargar más productos? (S/N)");
-			scan.nextLine();
-			sn = scan.nextLine();
+			sn = solicitarStringPorTeclado("Desea cargar más productos? (S/N)");
 		}
 
 		ivaTotal += (valorTotal * iva);
@@ -48,6 +44,7 @@ public class Main_Modularizado {
 
 	private static void impresion(Double valorTotalConIVA, Double valorTotal, Double ivaTotal, String razonSocial,
 			String domicilio, String ticket, String date) {
+
 		System.out.println("");
 		System.out.println("*************************************************************************************");
 		System.out.println("Fecha: " + date);
@@ -61,46 +58,25 @@ public class Main_Modularizado {
 		System.out.println("Total: " + valorTotalConIVA);
 	}
 
-	private static Double precioUnitario(Scanner scan) {
-		Double valorProducto;
-		System.out.println("Ingrese el valor unitario (sin IVA) del producto");
-		valorProducto = scan.nextDouble();
-		return valorProducto;
+	private static int solicitarIntPorTeclado(String mensaje) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println(mensaje);
+		int valor = scan.nextInt();
+		return valor;
 	}
 
-	private static int cantidadProducto(Scanner scan) {
-		int cantidadUnitariaProducto;
-		System.out.println("Ingrese la cantidad de unidades del producto");
-		cantidadUnitariaProducto = scan.nextInt();
-		return cantidadUnitariaProducto;
+	private static Double solicitarDoublePorTeclado(String mensaje) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println(mensaje);
+		Double valor = scan.nextDouble();
+		return valor;
 	}
 
-	private static String producto(Scanner scan) {
-		String producto;
-		System.out.println("Ingrese el producto de la compra");
-		producto = scan.nextLine();
-		return producto;
-	}
-
-	private static int cantidadDeProductos(Scanner scan) {
-		int cantidadTotalProducctos;
-		System.out.println("Ingrese la cantidad de productos");
-		cantidadTotalProducctos = scan.nextInt();
-		return cantidadTotalProducctos;
-	}
-
-	private static String domicilio(Scanner scan) {
-		String domicilio;
-		System.out.println("Ingrese el domicilio");
-		domicilio = scan.nextLine();
-		return domicilio;
-	}
-
-	private static String razonSocial(Scanner scan) {
-		String razonSocial;
-		System.out.println("Ingrese la razón social del comprador");
-		razonSocial = scan.nextLine();
-		return razonSocial;
+	private static String solicitarStringPorTeclado(String mensaje) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println(mensaje);
+		String valor = scan.nextLine();
+		return valor;
 	}
 
 	private static String date() {
